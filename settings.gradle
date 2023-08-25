@@ -1,0 +1,15 @@
+rootProject.name = 'account-service'
+
+includeBuild '../../shared/common-objects'
+includeBuild '../../shared/logging-utils'
+includeBuild '../../shared/archunit-tests'
+includeBuild '../../shared/auditing-utils'
+
+enableFeaturePreview("VERSION_CATALOGS")
+dependencyResolutionManagement {
+    versionCatalogs {
+        libs {
+            from(files("../../gradle/libs.versions.toml"))
+        }
+    }
+}

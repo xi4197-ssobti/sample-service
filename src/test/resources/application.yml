@@ -1,0 +1,15 @@
+spring:
+  config:
+    name: account-service
+    import: common.properties
+  profiles:
+    active: test
+
+
+app:
+  feign:
+    esb:
+      header-map:
+        apiuser: MerchAPIUser
+        apikey: ac68f2b3-a8b5-4382-8dc4-8b43886fc8cb
+        Content-Type: application/json

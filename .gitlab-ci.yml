@@ -1,0 +1,196 @@
+variables:
+  PROJECT: "account-service"
+  GRADLE_OPTS: "-Dorg.gradle.daemon=false"
+  KANIKO_ARGS: ""
+  KANIKO_BUILD_CONTEXT: $CI_PROJECT_DIR/services/${PROJECT}
+  CS_ANALYZER_IMAGE: "039912797956.dkr.ecr.ap-south-1.amazonaws.com/container-scanning:5"
+  CS_SEVERITY_THRESHOLD: MEDIUM
+  CS_VULNERABILITY_THRESHOLD: 1
+
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "parent_pipeline" && $CI_MERGE_REQUEST_ID
+      variables:
+         ECR_REPO: "account-service"
+    - if: $CI_PIPELINE_SOURCE == "parent_pipeline" && $CI_COMMIT_BRANCH == "dev"
+      variables:
+         ECR_REPO: "account-service"
+    - if: $CI_PIPELINE_SOURCE == "parent_pipeline" && $CI_COMMIT_BRANCH == "sit"
+      variables:
+         ECR_REPO: "account-service-sit"
+
+stages:
+  - build
+  - sonar
+  - ecr
+  - publish
+  - scan
+  - dev-deploy
+
+Build:
+  stage: build
+  image: "039912797956.dkr.ecr.ap-south-1.amazonaws.com/gradle-build-tool:v0.1.0"
+  tags:
+    - dev
+  before_script:
+    - GRADLE_USER_HOME="$(pwd)/.gradle"
+    - export GRADLE_USER_HOME
+  script:
+    - |
+      echo $ECR_REPO
+      cd services/${PROJECT}
+      chmod +x gradlew
+      gradle --build-cache build
+  cache:
+    key: ${PROJECT}
+    policy: pull-push
+    paths: 
+    - build
+    - .gradle
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "parent_pipeline" && $CI_COMMIT_BRANCH == "dev" || $CI_COMMIT_BRANCH == "sit"
+    - if: $CI_PIPELINE_SOURCE == "parent_pipeline" && $CI_MERGE_REQUEST_ID
+  artifacts:
+    paths:
+    - services/${PROJECT}/build
+    - services/${PROJECT}/build/test-results/*/*.xml
+    reports:
+      junit: services/${PROJECT}/build/test-results/*/*.xml
+    expire_in: 30 mins
+
+Sonar Scan:
+  stage: sonar
+  image: "039912797956.dkr.ecr.ap-south-1.amazonaws.com/gradle-build-tool:v0.1.0"
+  tags:
+    - dev
+  before_script:
+    - cd services/${PROJECT}
+    - GRADLE_USER_HOME="$(pwd)/.gradle"
+    - export GRADLE_USER_HOME 
+  script:
+  - |
+    gradle --build-cache sonarqube -Dsonar.host.url=${SONAR_URL}  -Dsonar.projectKey=${PROJECT} -Dsonar.projectName=${PROJECT} -Dsonar.login=${SONAR_TOKEN}
+    RESULT=$(curl -s ${SONAR_URL}/api/qualitygates/project_status?projectKey=${PROJECT} -u ${SONAR_TOKEN}: | jq '.projectStatus.status' | tr -d '"')
+    echo $RESULT
+    if [ $RESULT = "ERROR" ]; then
+        echo "sonarqube qualitygate failed"
+        exit 1
+    fi
+    echo "sonarqube qualitygate passed"
+  - echo "You can check the results at https://sonardev.aubankuat.in/"
+  cache:
+    key: ${PROJECT}
+    policy: pull-push
+    paths: 
+    - build
+    - .gradle
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "parent_pipeline" && $CI_COMMIT_BRANCH == "dev" || $CI_COMMIT_BRANCH == "sit"
+    - if: $CI_PIPELINE_SOURCE == "parent_pipeline" && $CI_MERGE_REQUEST_ID
+
+Create ECR:
+  stage: ecr
+  image: "039912797956.dkr.ecr.ap-south-1.amazonaws.com/infra-pipeline-tool:v0.3.0"
+  tags:
+    - dev
+  script:
+    - |
+      cd scripts/
+      chmod +x createRepo.sh
+      ./createRepo.sh
+      cd ../services/${PROJECT}
+      URI=$(aws ecr describe-repositories --repository-names ${ECR_REPO} --region ${AWS_REGION} | jq -r '.repositories[0].repositoryUri')
+      echo "export REPO_URI=$URI">build/path.sh
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "parent_pipeline" && $CI_COMMIT_BRANCH == "dev" || $CI_COMMIT_BRANCH == "sit" 
+  artifacts:
+      paths:
+      - services/${PROJECT}/build
+      expire_in: 30 mins
+
+Docker Publish:
+  stage: publish
+  image:
+    name: "039912797956.dkr.ecr.ap-south-1.amazonaws.com/kaniko:executor-debug"
+    entrypoint: [""]
+  dependencies:
+    - "Create ECR"
+  tags:
+    - dev
+  script:
+  - cd services/${PROJECT}
+  - source build/path.sh
+  - VERSION=`cat build.gradle|awk '$1 == "version" { print $3 }'`
+  - DOCKER=${VERSION//\'/}
+  - DOCKER_TAG=$(echo "$DOCKER" | tr -d '"')
+  - IMAGE_TAG=beta-$CI_COMMIT_SHORT_SHA-${DOCKER_TAG}
+  - echo "export TAG=${IMAGE_TAG}">build/image-tag.sh
+  - echo "export DOCKER_IMAGE=${REPO_URI}:${IMAGE_TAG}">build/tag.sh
+  - /kaniko/executor --context $KANIKO_BUILD_CONTEXT --dockerfile "$KANIKO_BUILD_CONTEXT/Dockerfile" --destination "${REPO_URI}:${IMAGE_TAG}"
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "parent_pipeline" && $CI_COMMIT_BRANCH == "dev" || $CI_COMMIT_BRANCH == "sit"
+  artifacts:
+    paths:
+    - services/${PROJECT}/build/tag.sh
+    - services/${PROJECT}/build/image-tag.sh
+    expire_in: 30 mins
+
+
+Image Scan:
+  stage: scan
+  image: "$CS_ANALYZER_IMAGE$CS_IMAGE_SUFFIX"
+  variables:
+    GIT_STRATEGY: none
+  allow_failure: false
+  artifacts:
+    reports:
+      container_scanning: gl-container-scanning-report.json
+      dependency_scanning: gl-dependency-scanning-report.json
+    paths: [gl-container-scanning-report.json, gl-dependency-scanning-report.json]
+  tags:
+    - dev
+  dependencies:
+    - "Docker Publish"
+  script:
+    - |
+      cd services/${PROJECT}
+      source build/tag.sh
+      gtcs scan
+      # sudo apt update
+      # sudo apt install -y jq
+      # reportFile="../../gl-container-scanning-report.json"
+      # if [ "$(jq ".vulnerabilities | length" $reportFile)" -gt 0 ]; then
+      #         echo "Vulnerabilities detected. Please analyze the report in $reportFile."
+      #         exit 1
+      # fi
+  rules:
+    - if: $CONTAINER_SCANNING_DISABLED
+      when: never
+    - if: $CI_COMMIT_BRANCH &&
+          $CI_GITLAB_FIPS_MODE == "true" &&
+          $CS_ANALYZER_IMAGE !~ /-(fips|ubi)\z/
+      variables:
+        CS_IMAGE_SUFFIX: -fips
+    - if: $CI_PIPELINE_SOURCE == "parent_pipeline" && $CI_COMMIT_BRANCH == "dev" || $CI_COMMIT_BRANCH == "sit"
+  
+
+Dev Deploy:
+  stage: dev-deploy
+  image: "039912797956.dkr.ecr.ap-south-1.amazonaws.com/infra-pipeline-tool:v0.3.0"
+  tags:
+    - dev
+  dependencies:
+    - "Docker Publish"
+    - "Create ECR"      
+  script:
+    - source services/${PROJECT}/build/image-tag.sh
+    - source services/${PROJECT}/build/path.sh
+    - echo ${TAG}
+    - echo ${REPO_URI}
+    - apk add gettext
+    - envsubst < services/${PROJECT}/k8s-config/$CI_COMMIT_BRANCH/values.yaml > services/${PROJECT}/k8s-config/$CI_COMMIT_BRANCH/updatedvalues.yaml
+    - cat services/${PROJECT}/k8s-config/$CI_COMMIT_BRANCH/updatedvalues.yaml  
+    - helm upgrade -i ${PROJECT} _helm_charts/xebia/helm-xebia-service-chart-0.17.0/. --values services/${PROJECT}/k8s-config/$CI_COMMIT_BRANCH/updatedvalues.yaml --values k8s-config/$CI_COMMIT_BRANCH/values.yaml -n $CI_COMMIT_BRANCH-mib --atomic --timeout 700s
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "parent_pipeline" && $CI_COMMIT_BRANCH == "dev" || $CI_COMMIT_BRANCH == "sit"
+  

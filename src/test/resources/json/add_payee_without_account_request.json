@@ -1,0 +1,29 @@
+{
+  "PayeeName": "rishi yadav1",
+  "CustomerId": "123456712",
+  "MobileNumber": "9457166560",
+  "EmailId": "abc@qwer.com",
+  "UpiID": "nikjuik@ybl",
+  "BankDetails": [
+  ],
+  "AddressDetails": {
+    "BillingName": "rishiu",
+    "AddressLine1": "line1",
+    "AddressLine2": "ALine1",
+    "PinCode": "204841",
+    "City": "mainpuri",
+    "State": "uttar pradesh",
+    "ShippingName": "rishiu",
+    "ShippingAddressLine1": "line1",
+    "ShippingAddressLine2": "ALine1",
+    "ShippingPinCode": "204841",
+    "ShippingCity": "mainpuri",
+    "ShippingState": "uttar pradesh",
+    "AddressFlag": true
+  },
+  "TaxAndPayment": {
+    "PANNumber": "12wer",
+    "TANNumber": "ertgfd",
+    "GSTNumber": "gst100"
+  }
+}

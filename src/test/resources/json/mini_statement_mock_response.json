@@ -1,0 +1,34 @@
+{
+  "error": null,
+  "data": {
+    "TransactionStatus": {
+      "ResponseCode": "0",
+      "ResponseMessage": "Success",
+      "ExtendedErrorDetails": {
+        "messages": [
+          {
+            "code": "0",
+            "message": null
+          }
+        ]
+      }
+    },
+    "TransactionInquiryDetails": [
+      {
+        "TxnDate": "2023-01-31",
+        "ValueDate": "2023-01-31",
+        "Description": "MONTHLY INTEREST PAYOUT",
+        "ChequeNo": " ",
+        "FlgDrCr": "C",
+        "OriginatingBranch": "2109",
+        "Amount": "372479.00",
+        "RunningTotal": "30898141.00",
+        "DepositNumber": "0"
+      }
+    ],
+    "ClosingBalance": "30898141.00",
+    "OpeningBalance": "30898141.00"
+  },
+  "status": "success",
+  "successfulResponse": true
+}

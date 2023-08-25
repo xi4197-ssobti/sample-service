@@ -1,0 +1,35 @@
+{
+  "error": null,
+  "data": {
+    "TransactionStatus": {
+      "ResponseCode": "0",
+      "ResponseMessage": "Success",
+      "ExtendedErrorDetails": {
+        "messages": [
+          {
+            "code": "0"
+          }
+        ]
+      }
+    },
+
+
+    "AccountDetails": {
+      "CustomerAccount": [
+        {
+          "AccountId": "2111244334774445",
+          "CASAAccountName": "26043735",
+          "CurrentStatus": "8"
+        },
+        {
+          "AccountId": "2211244339322152",
+          "CASAAccountName": "26043720",
+          "CurrentStatus": "8"
+        }
+      ],
+      "IsCustomerSchemeAvailable": "false"
+    }
+  },
+  "status": "success",
+  "successfulResponse": true
+}

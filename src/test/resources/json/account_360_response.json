@@ -1,0 +1,98 @@
+{
+  "status": "success",
+  "data": {
+    "TransactionStatus": {
+      "ResponseCode": "0",
+      "ResponseMessage": "Success",
+      "ExtendedErrorDetails": {
+        "messages": [
+          {
+            "code": "0",
+            "message": null
+          }
+        ]
+      }
+    },
+    "CustomerResponse": {
+      "CustomerBasicInquiry": {
+        "CustomerId": "25738630",
+        "NationalIdentificationCode": "25738630",
+        "CustomerName": {
+          "Prefix": "M/S.",
+          "ShortName": "NEFT CREDIT CARD PAY"
+        },
+        "CustomerFullName": "NEFT CREDIT CARD PAYMENTS",
+        "OfficerID": "Narendra Singh",
+        "CustomerAddress": {
+          "Line1": "25738630",
+          "Line2": "25738630",
+          "Line3": "25738630",
+          "City": "JAIPUR",
+          "State": "RAJASTHAN",
+          "Country": "India",
+          "Zip": "302020"
+        },
+        "BirthDateText": "2017-04-19",
+        "CategoryType": "BANK",
+        "IsImageAvailable": "false",
+        "IsSignatureAvailable": "false",
+        "CombWithdrawBal": "2.994278043E7",
+        "AgeOfCustRel": "2021-04-12",
+        "HomeBranch": "2033",
+        "MobileNumber": "1025738630",
+        "IcType": "L",
+        "IcTypeDesc": "Lead Number",
+        "BankShortName": "Jaipur_Central Office_Mansarovar 2"
+      }
+    },
+    "AccountDetail": [
+      {
+        "ModuleCode": "C",
+        "ProductName": "20231-Current A/C Pooling Product",
+        "AccountId": "2121203332705838",
+        "CurrencyCode": "1",
+        "CurrencyShortName": "INR",
+        "CustomerRelationship": "SOW",
+        "BalanceBook": "29942780.43",
+        "UnclearFunds": "0.00",
+        "Classification": "NORMAL",
+        "Reason": "UNBLOCKED ",
+        "BillAmount": "0.00",
+        "OriginalBalance": "0.00",
+        "CurrentStatus": "8",
+        "CurrentStatusDescription": "ACCOUNT OPEN REGULAR",
+        "AcyAmount": "29942780.43",
+        "AvailableBalance": "29942780.43",
+        "LcyAmount": "29942780.43",
+        "TotalAcyAmount": "29942780.43",
+        "TotalLcyAmount": "29942780.43",
+        "BranchName": "Jaipur_Central Office_Mansarovar 2",
+        "ExternalAccountId": "0",
+        "FutureDatedAmount": "0.00",
+        "SafeDepositBoxId": "0",
+        "DateAccountOpen": "2021-04-12",
+        "DateRelation": "2021-04-12",
+        "MonthsSinceActive": "22",
+        "BalUncollectedPrinc": "0.00",
+        "BalUncollectedInt": "0.00",
+        "TotalBalUncollecPrinc": "0.00",
+        "TotalBalUncollecInt": "0.00",
+        "TotalBalBook": "29942780.43",
+        "DateValue": "2021-04-12",
+        "BalPrincipal": "0",
+        "IntRate": "0",
+        "DepositNo": "0",
+        "LienAmount": "0",
+        "InstallmentAmount": "0",
+        "OtherArrear": "0",
+        "BalCombinedAcy": "29942780.43",
+        "BalCombinedLcy": "29942780.43",
+        "BranchCode": "2033-Jaipur_Central Office_Mansarovar 2",
+        "IsTDLinkage": "N  ",
+        "MaturityAmount": "0"
+      }
+    ]
+  },
+  "error": null,
+  "successfulResponse": true
+}

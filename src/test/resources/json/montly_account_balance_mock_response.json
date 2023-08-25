@@ -1,0 +1,57 @@
+{
+  "error": null,
+  "data": {
+    "TransactionStatus": {
+      "ResponseCode": "0",
+      "ResponseMessage": "Success",
+      "ExtendedErrorDetails": {
+        "messages": [
+          {
+            "code": "0",
+            "message": null
+          }
+        ]
+      }
+    },
+    "BalanceDetails": [
+      {
+        "AccountId": "2211213140025420",
+        "AverageAmountType": "Monthly",
+        "LogDate": "2022-11-30T00:00:00.000+05:30",
+        "AvgBalance": "2"
+      },
+      {
+        "AccountId": "2211213140025420",
+        "AverageAmountType": "Monthly",
+        "LogDate": "2022-12-31T00:00:00.000+05:30",
+        "AvgBalance": "2"
+      },
+      {
+        "AccountId": "2211213140025420",
+        "AverageAmountType": "Monthly",
+        "LogDate": "2023-01-31T00:00:00.000+05:30",
+        "AvgBalance": "2"
+      },
+      {
+        "AccountId": "2211213140025420",
+        "AverageAmountType": "Quaterly",
+        "LogDate": "2022-06-30T00:00:00.000+05:30",
+        "AvgBalance": "19598.72"
+      },
+      {
+        "AccountId": "2211213140025420",
+        "AverageAmountType": "Quaterly",
+        "LogDate": "2022-09-30T00:00:00.000+05:30",
+        "AvgBalance": "764.45"
+      },
+      {
+        "AccountId": "2211213140025420",
+        "AverageAmountType": "Quaterly",
+        "LogDate": "2022-12-31T00:00:00.000+05:30",
+        "AvgBalance": "2"
+      }
+    ]
+  },
+  "status": "success",
+  "successfulResponse": true
+}

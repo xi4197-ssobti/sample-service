@@ -1,0 +1,127 @@
+{
+  "status": "success",
+  "data": {
+    "TransactionStatus": {
+      "ResponseCode": "0",
+      "ResponseMessage": "Success",
+      "ExtendedErrorDetails": {
+        "messages": {
+          "code": "0",
+          "message": null
+        }
+      }
+    },
+    "ErrorCode": "0",
+    "MatchFound": {
+      "Customer": [
+        {
+          "CustomerID": "22649235",
+          "PAN": "22649235",
+          "AadhaarNumber": "226492354567",
+          "MobileNumber": "8306833306",
+          "LandlineResidenceNumber": "1022649235",
+          "CustomerFullName": "JASPREET SINGH VIRK",
+          "DateOfBirth": "1988-02-24",
+          "DateOfIncorporation": "1988-02-24",
+          "MotherMaidenName": "22649235",
+          "Address": {
+            "Line1": "22649235",
+            "Line2": "22649235",
+            "Line3": "22649235",
+            "City": "MUKTSAR",
+            "State": "PUNJAB",
+            "Country": "INDIA",
+            "Zip": "152115"
+          },
+          "BlockStatus": "N"
+        },
+        {
+          "CustomerID": "25132844",
+          "PAN": "25132844",
+          "AadhaarNumber": "251328443434",
+          "MobileNumber": "8306833306",
+          "LandlineResidenceNumber": "1025132844",
+          "CustomerFullName": "SAURABH PAREEK",
+          "DateOfBirth": "1987-06-03",
+          "DateOfIncorporation": "1987-06-03",
+          "MotherMaidenName": "25132844",
+          "Address": {
+            "Line1": "25132844",
+            "Line2": "25132844",
+            "Line3": "25132844",
+            "City": "JAIPUR",
+            "State": "RAJASTHAN",
+            "Country": "INDIA",
+            "Zip": "302001"
+          },
+          "BlockStatus": "N"
+        },
+        {
+          "CustomerID": "25862321",
+          "PAN": "25862321",
+          "AadhaarNumber": "258623215555",
+          "MobileNumber": "8306833306",
+          "LandlineResidenceNumber": "1025862321",
+          "CustomerFullName": "NAVDEEP KAUR",
+          "DateOfBirth": "1997-01-22",
+          "DateOfIncorporation": "1997-01-22",
+          "MotherMaidenName": "25862321",
+          "Address": {
+            "Line1": "25862321",
+            "Line2": "25862321",
+            "Line3": "25862321",
+            "City": "PATIALA",
+            "State": "PUNJAB",
+            "Country": "INDIA",
+            "Zip": "147103"
+          },
+          "BlockStatus": "N"
+        },
+        {
+          "CustomerID": "26797026",
+          "PAN": "26797026",
+          "AadhaarNumber": "26797026",
+          "MobileNumber": "8306833306",
+          "LandlineResidenceNumber": "8306833306",
+          "CustomerFullName": "KHATRI CHETNA DEEPAK",
+          "DateOfBirth": "1965-10-11",
+          "DateOfIncorporation": "1965-10-11",
+          "MotherMaidenName": "KHATRI PADMA JAYANTILAL",
+          "Address": {
+            "Line1": "406-B,SUNRISE APPARTMENT",
+            "Line2": "MAJUR MAHAJAN SOC,",
+            "Line3": "JAMALPORE,NAVSARI,NAVSARI",
+            "City": "NAVSARI",
+            "State": "GUJARAT",
+            "Country": "India",
+            "Zip": "396445"
+          },
+          "BlockStatus": "N"
+        },
+        {
+          "CustomerID": "27528451",
+          "PAN": "27528451",
+          "AadhaarNumber": "27528451",
+          "MobileNumber": "8306833306",
+          "LandlineResidenceNumber": "8306833306",
+          "CustomerFullName": "LALIT SHARMA",
+          "DateOfBirth": "1973-09-29",
+          "DateOfIncorporation": "1973-09-29",
+          "MotherMaidenName": "JANAK SHARMA",
+          "Address": {
+            "Line1": "H NO - B-73-74 VICTORIA ESTATE",
+            "Line2": "DEFENCE ROAD PANGOLI",
+            "Line3": "PATHANKOT",
+            "City": "PATHANKOT",
+            "State": "PUNJAB",
+            "Country": "India",
+            "Zip": "145001"
+          },
+          "BlockStatus": "N"
+        }
+      ]
+    }
+  },
+  "error": null,
+  "successfulResponse": true
+}

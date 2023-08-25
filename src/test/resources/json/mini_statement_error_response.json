@@ -1,0 +1,19 @@
+{
+  "error": null,
+  "data": {
+    "TransactionStatus": {
+      "ResponseCode": "99",
+      "ResponseMessage": "Failure",
+      "ExtendedErrorDetails": {
+        "messages": [
+          {
+            "code": "99",
+            "message": "validations failed. 1"
+          }
+        ]
+      }
+    }
+  },
+  "status": "success",
+  "successfulResponse": true
+}

@@ -1,0 +1,41 @@
+spring:
+  config:
+    name: account-service
+    import: common.properties
+  profiles:
+    active: local
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+    import: application-local.properties
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+---
+app:
+  current-status:
+    depositSummary:
+      [ 6, 8 ]
+  module-codes:
+    moduleCodeFilter:
+      [ M, C, O, B, N ]
+  feign:
+    esb:
+      header-map:
+        apiuser: MerchAPIUser
+        apikey: ac68f2b3-a8b5-4382-8dc4-8b43886fc8cb
+        Content-Type: application/json

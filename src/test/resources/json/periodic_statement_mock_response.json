@@ -1,0 +1,355 @@
+{
+  "error": null,
+  "data": {
+    "TransactionStatus": {
+      "ResponseCode": "0",
+      "ResponseMessage": "Success",
+      "ExtendedErrorDetails": {
+        "messages": [
+          {
+            "code": "0",
+            "message": "Success"
+          }
+        ]
+      }
+    },
+    "MiniStatement": [
+      {
+        "TransactionDate": "2022-05-15 03:02:46",
+        "ValueDate": "2022-05-15 00:00:00",
+        "Description": "Cheque Return Charges 29-04-22_000164",
+        "TransactionType": "D",
+        "TransactionBranch": "2454",
+        "TransactionAmount": "384.27",
+        "RunningTotal": "3447378.17",
+        "TxnId": "5546120220430441600001317               "
+      },
+      {
+        "TransactionDate": "2022-05-15 03:02:46",
+        "ValueDate": "2022-05-15 00:00:00",
+        "Description": "Cheque Return Charges 30-04-22_000165",
+        "TransactionType": "D",
+        "TransactionBranch": "2454",
+        "TransactionAmount": "590",
+        "RunningTotal": "3446788.17",
+        "TxnId": "5546120220502364400013103               "
+      },
+      {
+        "TransactionDate": "2022-05-15 03:02:46",
+        "ValueDate": "2022-05-15 00:00:00",
+        "Description": "Cheque Return Charges 30-04-22_000227",
+        "TransactionType": "D",
+        "TransactionBranch": "2454",
+        "TransactionAmount": "590",
+        "RunningTotal": "3446198.17",
+        "TxnId": "5546120220502364400013104               "
+      },
+      {
+        "TransactionDate": "2022-05-15 03:02:46",
+        "ValueDate": "2022-05-15 00:00:00",
+        "Description": "Cheque Return Charges 02-05-22_000166",
+        "TransactionType": "D",
+        "TransactionBranch": "2454",
+        "TransactionAmount": "590",
+        "RunningTotal": "3445608.17",
+        "TxnId": "3848120220504436700000654               "
+      },
+      {
+        "TransactionDate": "2022-05-15 03:02:46",
+        "ValueDate": "2022-05-15 00:00:00",
+        "Description": "Cheque Return Charges 04-05-22_000167",
+        "TransactionType": "D",
+        "TransactionBranch": "2454",
+        "TransactionAmount": "590",
+        "RunningTotal": "3445018.17",
+        "TxnId": "5546120220505304600095533               "
+      },
+      {
+        "TransactionDate": "2022-05-15 03:02:46",
+        "ValueDate": "2022-05-15 00:00:00",
+        "Description": "Cheque Return Charges 04-05-22_000173",
+        "TransactionType": "D",
+        "TransactionBranch": "2454",
+        "TransactionAmount": "590",
+        "RunningTotal": "3444428.17",
+        "TxnId": "5546120220505304600095534               "
+      },
+      {
+        "TransactionDate": "2022-05-15 03:02:46",
+        "ValueDate": "2022-05-15 00:00:00",
+        "Description": "Cheque Return Charges 04-05-22_000168",
+        "TransactionType": "D",
+        "TransactionBranch": "2454",
+        "TransactionAmount": "590",
+        "RunningTotal": "3443838.17",
+        "TxnId": "5546120220505304600095535               "
+      },
+      {
+        "TransactionDate": "2022-05-15 03:02:46",
+        "ValueDate": "2022-05-15 00:00:00",
+        "Description": "Cheque Return Charges 04-05-22_000155",
+        "TransactionType": "D",
+        "TransactionBranch": "2454",
+        "TransactionAmount": "590",
+        "RunningTotal": "3443248.17",
+        "TxnId": "5546120220505304600095536               "
+      },
+      {
+        "TransactionDate": "2022-05-15 03:02:46",
+        "ValueDate": "2022-05-15 00:00:00",
+        "Description": "Cheque Return Charges 04-05-22_000159",
+        "TransactionType": "D",
+        "TransactionBranch": "2454",
+        "TransactionAmount": "590",
+        "RunningTotal": "3442658.17",
+        "TxnId": "5546120220505304600095537               "
+      },
+      {
+        "TransactionDate": "2022-05-15 03:02:46",
+        "ValueDate": "2022-05-15 00:00:00",
+        "Description": "Cheque Return Charges 04-05-22_000158",
+        "TransactionType": "D",
+        "TransactionBranch": "2454",
+        "TransactionAmount": "590",
+        "RunningTotal": "3442068.17",
+        "TxnId": "5546120220505304600095538               "
+      },
+      {
+        "TransactionDate": "2022-05-15 03:02:46",
+        "ValueDate": "2022-05-15 00:00:00",
+        "Description": "Cheque Return Charges 04-05-22_000222",
+        "TransactionType": "D",
+        "TransactionBranch": "2454",
+        "TransactionAmount": "590",
+        "RunningTotal": "3441478.17",
+        "TxnId": "5546120220505304600095539               "
+      },
+      {
+        "TransactionDate": "2022-05-15 03:02:46",
+        "ValueDate": "2022-05-15 00:00:00",
+        "Description": "Cheque Return Charges 05-05-22_000170",
+        "TransactionType": "D",
+        "TransactionBranch": "2454",
+        "TransactionAmount": "590",
+        "RunningTotal": "3440888.17",
+        "TxnId": "5546120220506440200000905               "
+      },
+      {
+        "TransactionDate": "2022-05-15 03:02:46",
+        "ValueDate": "2022-05-15 00:00:00",
+        "Description": "Cheque Return Charges 05-05-22_000169",
+        "TransactionType": "D",
+        "TransactionBranch": "2454",
+        "TransactionAmount": "590",
+        "RunningTotal": "3440298.17",
+        "TxnId": "5546120220506440200000906               "
+      },
+      {
+        "TransactionDate": "2022-05-15 03:02:46",
+        "ValueDate": "2022-05-15 00:00:00",
+        "Description": "AMB Non Maintenance Charge Apr22",
+        "TransactionType": "D",
+        "TransactionBranch": "2454",
+        "TransactionAmount": "1180",
+        "RunningTotal": "3439118.17",
+        "TxnId": "5546120220507279000069901               "
+      },
+      {
+        "TransactionDate": "2022-05-15 03:02:47",
+        "ValueDate": "2022-05-15 00:00:00",
+        "Description": "Cheque Return Charges 06-05-22_000221",
+        "TransactionType": "D",
+        "TransactionBranch": "2454",
+        "TransactionAmount": "590",
+        "RunningTotal": "3438528.17",
+        "TxnId": "5546120220507279000333071               "
+      },
+      {
+        "TransactionDate": "2022-05-15 03:02:47",
+        "ValueDate": "2022-05-15 00:00:00",
+        "Description": "Cheque Return Charges 07-05-22_000171",
+        "TransactionType": "D",
+        "TransactionBranch": "2454",
+        "TransactionAmount": "590",
+        "RunningTotal": "3437938.17",
+        "TxnId": "5546120220509350800000671               "
+      },
+      {
+        "TransactionDate": "2022-05-15 03:02:47",
+        "ValueDate": "2022-05-15 00:00:00",
+        "Description": "Cheque Return Charges 09-05-22_000172",
+        "TransactionType": "D",
+        "TransactionBranch": "2454",
+        "TransactionAmount": "590",
+        "RunningTotal": "3437348.17",
+        "TxnId": "5546120220510378000000277               "
+      },
+      {
+        "TransactionDate": "2022-05-15 03:02:47",
+        "ValueDate": "2022-05-15 00:00:00",
+        "Description": "Cheque Return Charges 12-05-22_000111",
+        "TransactionType": "D",
+        "TransactionBranch": "2454",
+        "TransactionAmount": "590",
+        "RunningTotal": "3436758.17",
+        "TxnId": "5546120220513429800000292               "
+      },
+      {
+        "TransactionDate": "2022-05-15 12:47:04",
+        "ValueDate": "2022-05-15 00:00:00",
+        "Description": "NEFT DR-N135221005836771-Satya Prakash Bhagwani-ICIC0007285-LAXMI MANDIR TIRAHA JAIPUR-JAIPUR",
+        "TransactionType": "D",
+        "TransactionBranch": "2011",
+        "TransactionAmount": "760000",
+        "RunningTotal": "2676758.17",
+        "TxnId": "IPHNEFTHUB1505202213507254              "
+      },
+      {
+        "TransactionDate": "2022-05-15 16:24:39",
+        "ValueDate": "2022-05-15 00:00:00",
+        "Description": "IMPS-213516640777-HDFC-xxxxxxxxxx6396-Money Transf",
+        "TransactionType": "D",
+        "TransactionBranch": "2011",
+        "TransactionAmount": "190000",
+        "RunningTotal": "2486758.17",
+        "TxnId": "MOB-IMPS16526120786149946               "
+      },
+      {
+        "TransactionDate": "2022-05-15 17:08:12",
+        "ValueDate": "2022-05-15 00:00:00",
+        "Description": "IMPS-213517641985-HDFC-xxxxxxxxxx6396-Money Transf",
+        "TransactionType": "D",
+        "TransactionBranch": "2011",
+        "TransactionAmount": "140000",
+        "RunningTotal": "2346758.17",
+        "TxnId": "MOB-IMPS16526146912123521               "
+      },
+      {
+        "TransactionDate": "2022-05-15 17:12:47",
+        "ValueDate": "2022-05-15 00:00:00",
+        "Description": "IMPS-213517642134-ICIC-xxxxxxxx0047-ashu atm withd",
+        "TransactionType": "D",
+        "TransactionBranch": "2011",
+        "TransactionAmount": "25000",
+        "RunningTotal": "2321758.17",
+        "TxnId": "MOB-IMPS16526149665813695               "
+      },
+      {
+        "TransactionDate": "2022-05-16 02:09:44",
+        "ValueDate": "2022-05-16 00:00:00",
+        "Description": "NEFT DR-N136221005845514-Sagar-ICIC0006750-JAIPUR, C-SCHEME-JAIPUR",
+        "TransactionType": "D",
+        "TransactionBranch": "2011",
+        "TransactionAmount": "1000000",
+        "RunningTotal": "1321758.17",
+        "TxnId": "IPHNEFTHUB1605202213518657              "
+      },
+      {
+        "TransactionDate": "2022-05-16 02:11:16",
+        "ValueDate": "2022-05-16 00:00:00",
+        "Description": "IMPS-213602655744-ICIC-xxxxxxxx0174-Money Transfer",
+        "TransactionType": "D",
+        "TransactionBranch": "2011",
+        "TransactionAmount": "500000",
+        "RunningTotal": "821758.17",
+        "TxnId": "MOB-IMPS16526472757181350               "
+      },
+      {
+        "TransactionDate": "2022-05-16 02:12:21",
+        "ValueDate": "2022-05-16 00:00:00",
+        "Description": "RTGS DR-AUBLR12022051601294436-Sagar-ICIC0006750-JAIPUR, C-SCHEME-JAIPUR",
+        "TransactionType": "D",
+        "TransactionBranch": "2011",
+        "TransactionAmount": "800000",
+        "RunningTotal": "21758.17",
+        "TxnId": "IPHRTGTHUB1605202201866713              "
+      },
+      {
+        "TransactionDate": "2022-05-16 09:11:44",
+        "ValueDate": "2022-05-16 00:00:00",
+        "Description": "I/W Chq return-MICR IW 1-Jaipur_Centr-",
+        "TransactionType": "D",
+        "TransactionBranch": "2011",
+        "TransactionAmount": "2500000",
+        "ChequeNumber": "000000000047",
+        "RunningTotal": "-2478241.83",
+        "TxnId": "STBATCH00011255103                      "
+      },
+      {
+        "TransactionDate": "2022-05-16 09:11:44",
+        "ValueDate": "2022-05-16 00:00:00",
+        "Description": "I/W Chq return-Funds Insufficient",
+        "TransactionType": "C",
+        "TransactionBranch": "2011",
+        "TransactionAmount": "2500000",
+        "ChequeNumber": "000000000047",
+        "RunningTotal": "21758.17",
+        "TxnId": "STBATCH00011255103                      "
+      },
+      {
+        "TransactionDate": "2022-05-16 17:42:14",
+        "ValueDate": "2022-05-16 00:00:00",
+        "Description": "Cheque Return Charges 13-05-22_000230",
+        "TransactionType": "D",
+        "TransactionBranch": "2454",
+        "TransactionAmount": "590",
+        "RunningTotal": "21168.17",
+        "TxnId": "5546120220516187800001254               "
+      },
+      {
+        "TransactionDate": "2022-05-17 09:02:59",
+        "ValueDate": "2022-05-17 00:00:00",
+        "Description": "G S MARKETING-Chq Paid-MICR IW 1-Jaipur_Centr",
+        "TransactionType": "D",
+        "TransactionBranch": "2011",
+        "TransactionAmount": "3007",
+        "ChequeNumber": "000000000160",
+        "RunningTotal": "18161.17",
+        "TxnId": "STBATCH00011272945                      "
+      },
+      {
+        "TransactionDate": "2022-05-17 13:37:59",
+        "ValueDate": "2022-05-17 00:00:00",
+        "Description": "IMPS-213713770946-SAGAR .-AUS-xxxxxxxx0174-ShubhAu",
+        "TransactionType": "C",
+        "TransactionBranch": "2011",
+        "TransactionAmount": "50000",
+        "RunningTotal": "68161.17",
+        "TxnId": "3282220220517000400015317               "
+      },
+      {
+        "TransactionDate": "2022-05-17 15:01:18",
+        "ValueDate": "2022-05-17 00:00:00",
+        "Description": "FT -SHRI VINAYAK SURGI PHARMA Dr - 1721220613710291 - SHRI VINAYAK SURGI PHARMA",
+        "TransactionType": "D",
+        "TransactionBranch": "2163",
+        "TransactionAmount": "24250",
+        "ChequeNumber": "000000000184",
+        "RunningTotal": "43911.17",
+        "TxnId": "5030120220517002400000047               "
+      },
+      {
+        "TransactionDate": "2022-05-17 15:12:37",
+        "ValueDate": "2022-05-17 00:00:00",
+        "Description": "IMPS-213715719703-ICIC-xxxxxxxx0047-Money Transfer",
+        "TransactionType": "D",
+        "TransactionBranch": "2011",
+        "TransactionAmount": "43000",
+        "RunningTotal": "911.17",
+        "TxnId": "MOB-IMPS16527805564549041               "
+      },
+      {
+        "TransactionDate": "2022-05-17 17:58:42",
+        "ValueDate": "2022-05-17 00:00:00",
+        "Description": "Cheque Return Charges 16-05-22_000047",
+        "TransactionType": "D",
+        "TransactionBranch": "2454",
+        "TransactionAmount": "590",
+        "RunningTotal": "321.17",
+        "TxnId": "5470820220517318600000342               "
+      }
+    ]
+  },
+  "status": "success",
+  "successfulResponse": true
+}

@@ -1,0 +1,11 @@
+{
+  "status": "error",
+  "data": null,
+  "error": {
+    "statusCode": 400,
+    "errorCode": "AS0809",
+    "message": "[MessageInfo(code=99, message=Account not found)]",
+    "errors": []
+  },
+  "successfulResponse": false
+}

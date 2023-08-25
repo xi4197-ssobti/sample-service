@@ -1,0 +1,78 @@
+plugins {
+    alias(libs.plugins.springBoot)
+    alias(libs.plugins.springDependencyManagement)
+    id 'java'
+    alias(libs.plugins.docker)
+    id 'checkstyle'
+    id 'jacoco'
+    alias(libs.plugins.gitProperties)
+    alias(libs.plugins.sonarqube)
+}
+
+group 'com.au.app.account'
+version = '0.0.1'
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(libs.versions.java.get())
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    enabled = false
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation libs.springDoc
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:3.1.4'
+    implementation 'com.google.code.gson:gson'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    implementation 'org.flywaydb:flyway-core'
+    implementation "com.au.app:common-objects"
+    implementation "com.au.app:logging-utils"
+    runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
+    runtimeOnly 'org.postgresql:postgresql'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'com.h2database:h2'
+    testImplementation 'com.au.app:archunit-tests'
+    implementation 'org.springframework.retry:spring-retry'
+    implementation "com.au.app:auditing-utils"
+    implementation 'org.flywaydb:flyway-core'
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+    }
+}
+test.finalizedBy jacocoTestReport
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events("passed", "failed", "skipped")
+    }
+}
+
+tasks.withType(Checkstyle) {
+    configFile file('codequality/checkstyle.xml')
+    checkstyleTest.enabled = false
+}
+
+sonarqube {
+    properties {
+        property 'sonar.coverage.exclusions', "**"
+    }
+}
+
+springBoot {
+    buildInfo()
+}

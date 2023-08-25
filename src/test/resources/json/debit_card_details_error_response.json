@@ -1,0 +1,19 @@
+{
+  "error": null,
+  "data": {
+    "TransactionStatus": {
+      "ResponseCode": "99",
+      "ResponseMessage": "Failure",
+      "ExtendedErrorDetails": {
+        "messages": [
+          {
+            "code": "05",
+            "message": "Citizen id not found"
+          }
+        ]
+      }
+    }
+  },
+  "status": "success",
+  "successfulResponse": true
+}

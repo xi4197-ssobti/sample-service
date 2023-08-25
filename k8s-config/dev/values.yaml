@@ -1,0 +1,172 @@
+project: merchant-app
+fullnameOverride: 'account-service'
+environment: 'dev'
+namespace: 'dev-mib'
+deployment:
+  initContainers:
+    - name: init-cacert
+      resources:
+        limits:
+          cpu: 100m
+          memory: 600Mi
+        requests:
+          cpu: 50m
+          memory: 300Mi
+      image:
+        tag: ${TAG}
+        repository: "039912797956.dkr.ecr.ap-south-1.amazonaws.com/account-service"
+      command:
+        - /bin/sh
+        - -c
+        - |
+          cp -R /usr/lib/jvm/zulu17-ca-amd64/lib/security/* /cacerts/
+          keytool -import -noprompt -trustcacerts -alias osbuat -file /security/osbuat.crt -keystore /cacerts/cacerts -storepass changeit
+      volumeMounts:
+        - mountPath: /cacerts
+          name: cacerts-app
+        - mountPath: /security
+          name: osbuat
+  component: api
+  containerPort:
+    http: 13003
+    metrics: 13003
+  replicaCount: 1
+  image:
+    registry: "039912797956.dkr.ecr.ap-south-1.amazonaws.com"
+    repository: account-service
+    pullPolicy: IfNotPresent
+    tag: ${TAG}
+  podAnnotations:
+    prometheus.io/scrape: 'true'
+    prometheus.io/port: '13003'
+    prometheus.io/path: '/api/account-service/prometheus'
+    fluentbit.io/parser: javaparser
+  extraEnvs:
+    - name: SPRING_DATASOURCE_USERNAME
+      valueFrom:
+        secretKeyRef:
+          name: account-service-dev-credentials
+          key: username
+    - name: SPRING_DATASOURCE_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: account-service-dev-credentials
+          key: password
+    - name: SPRING_DATASOURCE_URL
+      value: jdbc:postgresql://ms-db-dev-1.cix0nfpzs5fe.ap-south-1.rds.amazonaws.com:5432/accountservicedb
+    - name: CLIENT.OSB.AUBANKUAT.BASE.URL
+      value: https://osbuat.aubankuat.in
+    - name: CLIENT.AUBANK.SERVICE.URL
+      value: https://service.aubank.in
+
+  livenessProbe:
+    path: /api/account-service/health
+    port: 13003
+    failureThreshold: 30
+    initialDelaySeconds: 180
+    periodSeconds: 10
+    timeoutSeconds: 10
+  readinessProbe:
+    path: /api/account-service/health
+    port: 13003
+    failureThreshold: 30
+    initialDelaySeconds: 180
+    periodSeconds: 10
+    timeoutSeconds: 10
+  resources:
+    limits:
+      cpu: 100m
+      memory: 600Mi
+    requests:
+      cpu: 50m
+      memory: 300Mi
+  volumeMounts:
+    - mountPath: /etc/secrets/csi-secret
+      name: csi-secret
+      readOnly: true
+    - mountPath: /usr/lib/jvm/zulu17-ca-amd64/lib/security/
+      name: cacerts-app
+  volumes:
+    - name: csi-secret
+      csi:
+        driver: secrets-store.csi.k8s.io
+        readOnly: true
+        volumeAttributes:
+          secretProviderClass: account-service
+    - name: osbuat
+      secret:
+        defaultMode: 420
+        secretName: osbuatcert
+    - name: cacerts-app
+      emptyDir: { }
+
+  podSecurityContext:
+    runAsNonRoot: true
+    runAsUser: 1000
+service:
+  type: ClusterIP
+  annotations: { }
+  ports:
+    - name: http
+      port: 13003
+      targetPort: 13003
+    - name: https
+      port: 15020
+      targetPort: 15020
+
+# creates a servicemonitor on prometheus
+serviceMonitor:
+  enabled: true
+  path: /stats/prometheus
+  port: https
+  interval: 10s
+  scrapeTimeout: 10s
+  relabelings:
+    - action: replace
+      sourceLabels:
+        - __meta_kubernetes_pod_label_app
+      targetLabel: au_apps
+  additionalLabels:
+    release: 12-kube-monitoring-stack
+
+istio:
+  enabled: true
+  destinationRule:
+    enabled: false
+  virtualService:
+    enabled: true
+    timeout: 1m
+    destinationport: 13003
+    host: '*'
+    gateway: ms-ingress
+    uriPrefix:
+      - /api/account-service/
+  # authorization policy to only allow access within the namespace
+  authorizationPolicy:
+    enabled: false
+    allowedNamespaces: [ ]
+    # allowedNaemspaces: [ns1, ns2, ns3]
+secretProviderClass:
+  enabled: true
+  provider: aws
+  parameters:
+    objects:
+      - objectName: account-service-dev-credentials
+        objectType: secretsmanager
+        jmesPath:
+          - path: "username"
+            objectAlias: "SecretUsername"
+          - path: "password"
+            objectAlias: "SecretPassword"
+  secretObjects:
+    - secretName: account-service-dev-credentials
+      type: Opaque
+      data:
+        - key: username
+          objectName: "SecretUsername"
+        - key: password
+          objectName: "SecretPassword"
+serviceAccount:
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::039912797956:role/account-service-dev-irsa
+  name: 'account-service'

@@ -1,0 +1,41 @@
+name: Account Service CI
+on:
+   pull_request:
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  PathFilter:
+   runs-on: self-hosted
+    # For pull requests, it's not necessary to checkout code
+   permissions:
+      pull-requests: read
+   outputs:
+      account: ${{ steps.filter.outputs.account }}
+      app: ${{ steps.filter.outputs.app }}
+   steps:
+   - uses: dorny/paths-filter@v2
+     id: filter
+     with:
+       filters: |
+          app:
+            - 'services/app-service/**'
+          account:
+            - 'services/account-service/**'
+  
+  account-service:
+    needs: PathFilter
+    if: ${{ needs.PathFilter.outputs.account == 'true' }}
+    uses: xebia-devops-practice/github-pipeline-library/.github/workflows/ci-pipeline.yml@main
+    with:
+      projectname: account-service
+    secrets: inherit # secrets can be inherited in the same organization or enterprise 
+  
+  App-service:
+    needs: PathFilter
+    if: ${{ needs.PathFilter.outputs.app == 'true' }}
+    uses: xebia-devops-practice/github-pipeline-library/.github/workflows/ci-pipeline.yml@main
+    with:
+      projectname: app-service
+    secrets: inherit # secrets can be inherited in the same organization or enterprise 

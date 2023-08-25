@@ -1,0 +1,141 @@
+{
+  "error": null,
+  "data": {
+    "TransactionStatus": {
+      "ResponseCode": "0",
+      "ResponseMessage": "Success",
+      "ExtendedErrorDetails": {
+        "messages": [
+          {
+            "code": "00",
+            "message": null
+          }
+        ]
+      }
+    },
+    "CardDetails": [
+      {
+        "CardNumber": "4302170093432985",
+        "ClientID": "SA00607662",
+        "MemberNumber": "1",
+        "ActiveInactive": "A",
+        "ClientDirectoryFirstName": "SUDHANSHU YADAV",
+        "ClientDirectoryLastName": "SUDHANSHU YADAV",
+        "ClientDirectorySearchName": "SUDHANSHU YADAV, SUD",
+        "EmbossName1": "SUDHANSHU YADAV",
+        "EmbossName2": "SUDHANSHU YADAV",
+        "EncodeFirstName": "SUDHANSHU YADAV",
+        "EncodeLastName": "SUDHANSHU YADAV",
+        "PrimaryAcctNumber": "1971229924329930",
+        "PrimaryAcctCurrency": "INR",
+        "CardIssueDate": "2023-01-02",
+        "ExpiryDate": "2030-01-31",
+        "CardType": "AV1",
+        "CardActivationChannel": "DDNN",
+        "OverseasTransactionActivationStatus": "D",
+        "ReissueCount": "0",
+        "AccountDetails": {
+          "AccountType": "02",
+          "AccountNumber": "1971229924329930",
+          "AccountDescription": "Savings",
+          "BranchCode": "2299",
+          "CurrencyCode": "356",
+          "AccountStatus": "A",
+          "PrimaryFlag": "Y"
+        }
+      },
+      {
+        "CardNumber": "4302170060285010",
+        "ClientID": "SA00607663",
+        "MemberNumber": "1",
+        "ActiveInactive": "A",
+        "ClientDirectoryFirstName": "SUDHANSHU YADAV",
+        "ClientDirectoryLastName": "SUDHANSHU YADAV",
+        "ClientDirectorySearchName": "SUDHANSHU YADAV, SUD",
+        "EmbossName1": "SUDHANSHU YADAV",
+        "EmbossName2": "SUDHANSHU YADAV",
+        "EncodeFirstName": "SUDHANSHU YADAV",
+        "EncodeLastName": "SUDHANSHU YADAV",
+        "PrimaryAcctNumber": "1972229924329892",
+        "PrimaryAcctCurrency": "INR",
+        "CardIssueDate": "2023-01-02",
+        "ExpiryDate": "2030-01-31",
+        "CardType": "AV1",
+        "CardActivationChannel": "DDNN",
+        "OverseasTransactionActivationStatus": "D",
+        "ReissueCount": "0",
+        "AccountDetails": {
+          "AccountType": "02",
+          "AccountNumber": "1972229924329892",
+          "AccountDescription": "Savings",
+          "BranchCode": "2299",
+          "CurrencyCode": "356",
+          "AccountStatus": "A",
+          "PrimaryFlag": "Y"
+        }
+      },
+      {
+        "CardNumber": "4302170061168827",
+        "ClientID": "SA00599300",
+        "MemberNumber": "1",
+        "ActiveInactive": "A",
+        "ClientDirectoryFirstName": "SUDHANSHU YADAV",
+        "ClientDirectoryLastName": "SUDHANSHU YADAV",
+        "ClientDirectorySearchName": "SUDHANSHU YADAV, SUD",
+        "EmbossName1": "SUDHANSHU YADAV",
+        "EmbossName2": "SUDHANSHU YADAV",
+        "EncodeFirstName": "SUDHANSHU YADAV",
+        "EncodeLastName": "SUDHANSHU YADAV",
+        "PrimaryAcctNumber": "1971229924329930",
+        "PrimaryAcctCurrency": "INR",
+        "CardIssueDate": "2022-12-30",
+        "ExpiryDate": "2029-12-31",
+        "CardType": "AV1",
+        "CardActivationChannel": "DDNN",
+        "OverseasTransactionActivationStatus": "D",
+        "ReissueCount": "0",
+        "AccountDetails": {
+          "AccountType": "02",
+          "AccountNumber": "1971229924329930",
+          "AccountDescription": "Savings",
+          "BranchCode": "2299",
+          "CurrencyCode": "356",
+          "AccountStatus": "A",
+          "PrimaryFlag": "Y"
+        }
+      },
+      {
+        "CardNumber": "4302170062505167",
+        "ClientID": "SA00599301",
+        "MemberNumber": "1",
+        "ActiveInactive": "A",
+        "ClientDirectoryFirstName": "SUDHANSHU YADAV",
+        "ClientDirectoryLastName": "SUDHANSHU YADAV",
+        "ClientDirectorySearchName": "SUDHANSHU YADAV, SUD",
+        "EmbossName1": "SUDHANSHU YADAV",
+        "EmbossName2": "SUDHANSHU YADAV",
+        "EncodeFirstName": "SUDHANSHU YADAV",
+        "EncodeLastName": "SUDHANSHU YADAV",
+        "PrimaryAcctNumber": "1972229924329890",
+        "PrimaryAcctCurrency": "INR",
+        "CardIssueDate": "2022-12-30",
+        "ExpiryDate": "2029-12-31",
+        "CardType": "AV1",
+        "CardActivationChannel": "DDNN",
+        "OverseasTransactionActivationStatus": "D",
+        "ReissueCount": "0",
+        "AccountDetails": {
+          "AccountType": "02",
+          "AccountNumber": "1972229924329890",
+          "AccountDescription": "Savings",
+          "BranchCode": "2299",
+          "CurrencyCode": "356",
+          "AccountStatus": "A",
+          "PrimaryFlag": "Y"
+        }
+      }
+    ]
+  },
+  "status": "success",
+  "successfulResponse": true
+}

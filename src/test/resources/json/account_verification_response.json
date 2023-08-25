@@ -1,0 +1,16 @@
+{
+  "TransactionStatus": {
+    "ResponseCode": "0",
+    "ResponseMessage": "Success",
+    "ExtendedErrorDetails": {
+      "messages": [
+        {
+          "code": 0,
+          "message": "Success"
+        }
+      ]
+    }
+  },
+  "BeneficiaryName": "KAJAL",
+  "RetrievalReferenceNumber": null
+}
